@@ -1,0 +1,44 @@
+@media (min-width:500px){
+    body{
+       background-color:rgb(236, 192, 198);
+    }
+}
+@media (max-width:499px){
+    body{
+       background-color:rgb(243, 151, 159);
+    }
+}
+h1{
+    text-align:center;
+}
+
+h1, h2{
+   
+    color:brown;
+    font-family:Calibri;
+    font-weight:bold;
+}
+ol li{
+    color:rgba(77, 69, 23, 0.911);
+    font-size:15px;
+    
+}
+
+ol > li{
+    font-weight:bold;
+    font-size:20px;
+}
+a::before{
+    content : "\21d2   ";
+}
+.class{
+    text-align:center;
+    color:rgb(202, 184, 24);
+}
+
+ol li::selection{
+    color:yellow;
+}
+#id1 ,#id2,#id3,#id4 {
+    color:rgba(77, 69, 23, 0.911);
+}
