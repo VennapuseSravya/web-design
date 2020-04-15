@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            Registration Page
+        </title>
+        <style>
+            form { 
+                   margin: 0 auto; 
+                   width:750px;
+                   color:brown;
+                }
+           
+            td{
+                text-align:right;
+                color:rgb(150, 140, 3);
+            }
+            
+                
+        </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4" style="text-align:center">Registration Page!</h1>
+            <hr class="my-4">
+             <p style="text-align:center">Enter your details to go to next Page</p>
+                    
+        </div>
+       
+    <form action="/print" method="post">
+    <table>
+    <tr>
+    <td><label for="first-name">First Name</label></td>
+    <td><input type="text" placeholder="Enter First Name" name="first-name" size="25"></td>
+    <td> <label for="last-name">Last Name</label></td>
+    <td><input type="text" placeholder="Enter Last Name" name="last-name" size="25"></td>
+    </tr>
+    <div>
+    <tr>
+    <td><label for="email">Email</label></td>
+    <td><input type="text" placeholder="Enter Email" name="email" required size="25"> </td>
+    </tr>
+    <div>
+    <tr>
+    <td><label for="psw">Password</label></td>
+    <td><input type="password" placeholder="Enter Password(max 8 )" name="psw" required size="25" maxlength="8"></td>
+    <td><label for="psw-repeat">Repeat Password</label></td>
+    <td><input type="password" placeholder="Repeat Password" name="psw-repeat" required size="25" maxlength="8"></td>
+    </tr>
+    </table>
+    <label>
+      <input type="checkbox" checked="checked" name="valid" style="margin-bottom:15px" required> Check out If given details are valid
+    </label>
+    <div class="clearfix">
+           <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+        
+        </form>
+        
+    </body>
+</html>
