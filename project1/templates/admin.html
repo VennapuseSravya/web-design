@@ -1,0 +1,27 @@
+<html>
+    <head><title>Admins</title></head>
+    <body>
+            <h2> List of Registered Users emails</h2>
+            <table>
+                <tr>
+                    <th>First-name</th>
+                    <th>Last-name</th>
+                    <th>Email</th>
+                    <th>Date-Time</th>
+                </tr> 
+                {% for m in register %}
+                 <tr>
+                     <td>{{ m.first_name }}</td>
+                     <td>{{m.last_name}}</td>
+                     <td>{{m.email}}</td>
+                     <td>{{m.datetime}}</td>
+                 </tr>  
+                
+                    {% endfor %}
+            
+    
+    
+               
+    
+    </body>
+</html>
