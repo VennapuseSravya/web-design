@@ -6,3 +6,4 @@ class Registration(db.Model):
     last_name = db.Column(db.String,nullable=False)
     email = db.Column(db.String,nullable=False,primary_key=True)
     datetime = db.Column(db.String,nullable=False)
+    password = db.Column(db.String,nullable=False)

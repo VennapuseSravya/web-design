@@ -43,7 +43,8 @@ def display():
         f = request.form.get("first-name")
         l = request.form.get("last-name")
         email = request.form.get("email")
-        register = Registration(first_name=f, last_name=l,email=email,datetime=datetime.now())
+        password = request.form.get("psw")
+        register = Registration(first_name=f, last_name=l,email=email,datetime=datetime.now(),password=password)
         
         try:
             db.session.add(register)
@@ -61,10 +62,10 @@ def admin():
 @app.route('/')
 def index():
     if 'username' in session:
-        username = session['username']
-        return 'Logged in as ' + username + '<br>' + \
+        user = session['username']
+        return 'Logged in as ' + user + '<br>' + \
          "<b><a href = '/logout'>click here to log out</a></b>"
-    return "You are not logged in <br><a href = '/login'></b>" + \
+    return "You are not logged in <br><a href = '/register'></b>" + \
       "click here to log in</b></a>"
 
      
@@ -72,12 +73,14 @@ def index():
 def authenticate():
     Registration.query.all()
     email = request.form.get("email")
+    password = request.form.get("psw")
     try:
         Member = db.session.query(Registration).filter(Registration.email == email).all()    
         print(Member[0].first_name)
-        session['user'] = request.form.get("email")
-        return redirect(url_for('index'))
-        # return render_template("User.html")   
+        if Member[0].email==email and Member[0].password==password:
+            session['username'] = request.form.get("email")
+            return redirect(url_for('index'))
+            # return render_template("User.html")   
     except Exception :
 	        return "Email is not registered"
 
