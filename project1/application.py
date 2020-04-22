@@ -75,15 +75,16 @@ def authenticate():
     email = request.form.get("email")
     password = request.form.get("psw")
     try:
-        Member = db.session.query(Registration).filter(Registration.email == email).all()    
+        Member = db.session.query(Registration).filter(Registration.email == email).all()  
+        print(Member)  
         print(Member[0].first_name)
         if Member[0].email==email and Member[0].password==password:
             session['username'] = request.form.get("email")
             return redirect(url_for('index'))
-            # return render_template("User.html")   
+            # return render_template("User.html")  
     except Exception :
-	        return "Email is not registered"
-
+        #return render_template("RegistrationPage.html",message="Email is not registered.Please Registe!!")
+	    return redirect(url_for('register'))
 
 @app.route('/logout')
 def logout():
