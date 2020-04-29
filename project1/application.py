@@ -27,11 +27,15 @@ db.init_app(app)
 # Set up database
 # engine = create_engine(os.getenv("DATABASE_URL"))
 # db = scoped_session(sessionmaker(bind=engine))
-
+@app.route("/register/<int:arg>", methods=['GET', 'POST'])
 @app.route("/register",methods=["GET"])
-def register():
+def register(arg=None):
+    message=""
+    if (arg==1):
+        message="Email is not registered.Please Register!!"
+    
     if request.method == "GET":
-        return render_template("RegistrationPage.html")
+        return render_template("RegistrationPage.html",message=message)
     
 # @app.route("/")
 # def index():
@@ -83,8 +87,8 @@ def authenticate():
             return redirect(url_for('index'))
             # return render_template("User.html")  
     except Exception :
-        #return render_template("RegistrationPage.html",message="Email is not registered.Please Registe!!")
-	    return redirect(url_for('register'))
+       
+	    return redirect(url_for('register',arg=1))
 
 @app.route('/logout')
 def logout():
