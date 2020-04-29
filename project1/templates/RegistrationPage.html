@@ -3,6 +3,73 @@
         <title>
             Registration Page
         </title>
+        <script>
+            function registration(){
+
+                var name= document.getElementById("t1").value;
+                var email= document.getElementById("t2").value;
+                var lastname= document.getElementById("t3").value;
+                var pwd= document.getElementById("t4").value;			
+                var cpwd= document.getElementById("t5").value;
+
+                    //email id expression code
+                    var pwd_expression = /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-])/;
+                    var letters = /^[A-Za-z]+$/;
+                    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+                    if(name=='')
+                    {
+                    alert('Please enter your name');
+                    }
+                    else if(!letters.test(name))
+                    {
+                    alert('Name field required only alphabet characters');
+                    }
+                    else if(email=='')
+                    {
+                    alert('Please enter your user email id');
+                    }
+                    else if (!filter.test(email))
+                    {
+                    alert('Invalid email');
+                    }
+                    else if(lastname=='')
+                    {
+                    alert('Please enter the user name.');
+                    }
+                    else if(!letters.test(lastname))
+                    {
+                    alert('User name field required only alphabet characters');
+                    }
+                    else if(pwd=='')
+                    {
+                    alert('Please enter Password');
+                    }
+                    else if(cpwd=='')
+                    {
+                    alert('Enter Confirm Password');
+                    }
+                    else if(!pwd_expression.test(pwd))
+                    {
+                    alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+                    }
+                    else if(pwd != cpwd)
+                    {
+                    alert ('Password not Matched');
+                    }
+                    else if(document.getElementById("t5").value.length < 6)
+                    {
+                    alert ('Password minimum length is 6');
+                    }
+                    else if(document.getElementById("t5").value.length > 12)
+                    {
+                    alert ('Password max length is 12');
+                    }
+
+            }
+                
+            
+        </script>
         <style>
             form { 
                    margin: 0 auto; 
@@ -29,34 +96,34 @@
             </p>
                     
         </div>
-        <h6 style="text-align:center">{{message}}</h6>
+        <h6 style="text-align:center">{{error}}</h6>
        
     <form action="/print" method="post">
     <table>
     <tr>
     <td><label for="first-name">First Name</label></td>
-    <td><input type="text" placeholder="Enter First Name" name="first-name" size="25"></td>
+    <td><input type="text" placeholder="Enter First Name" name="first-name" id="t1" size="25"></td>
     <td> <label for="last-name">Last Name</label></td>
-    <td><input type="text" placeholder="Enter Last Name" name="last-name" size="25"></td>
+    <td><input type="text" placeholder="Enter Last Name" name="last-name" id="t3" size="25"></td>
     </tr>
     <div>
     <tr>
     <td><label for="email">Email</label></td>
-    <td><input type="text" placeholder="Enter Email" name="email"  size="25"> </td>
+    <td><input type="text" placeholder="Enter Email" name="email"  size="25" id="t2"  required> </td>
     </tr>
     <div>
     <tr>
     <td><label for="psw">Password</label></td>
-    <td><input type="password" placeholder="Enter Password(max 8 )" name="psw" size="25" maxlength="8"></td>
+    <td><input type="password" placeholder="Enter Password(max 8 )" name="psw" id="t4" size="25" maxlength="8" required></td>
     <td><label for="psw-repeat">Repeat Password</label></td>
-    <td><input type="password" placeholder="Repeat Password" name="psw-repeat"  size="25" maxlength="8"></td>
+    <td><input type="password" placeholder="Repeat Password" name="psw-repeat" id="t5" size="25" maxlength="8" required></td>
     </tr>
     </table>
     <label>
       <input type="checkbox" checked="checked" name="valid" style="margin-bottom:15px" > Check out If given details are valid
     </label>
     <div class="clearfix">
-           <button type="submit" class="signupbtn">Sign Up</button>
+           <button type="submit" class="signupbtn" onclick="registration()">Sign Up</button>
            <button type="submit" formaction="auth" value="Login">Login</button>
  
     </div>
